@@ -31,6 +31,7 @@ Titolo: Nuovo approccio per il binning di frammenti di DNA: teoria ed esperiment
 Candidato: Sara Montemaggi
 
 Relatore: Giovanna Rosone
+
 Co-relatore: Veronica Guerrini
 
 
