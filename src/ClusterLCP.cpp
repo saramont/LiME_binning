@@ -16,8 +16,8 @@ As preprocessing, it need to have the two data structures fileFasta.lcp and file
 Input: fileFasta, total number of reads, total number of genomes, alpha, threads.
 		
 Output: fileFasta.alpha.clrs containing a pair ElementCluster (pStart,len) for each alpha-cluster detected; one auxiliary file.
-
 */
+
 #if POS
 void StartCluster(dataTypeNChar ind, ElementCluster &cluster)
 {
