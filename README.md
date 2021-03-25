@@ -5,7 +5,6 @@ LiME_binning is a novel lightweight alignment-free and assembly-free framework f
 Let *S* be a large collection of biological sequences comprising reads.
 
 It takes in input:
-- the extended Burrows–Wheeler transform (ebwt), or multi-string BWT, of collection *S*;
 - the longest common prefix array (lcp) of collection *S*;
 - the document array (da) of collection *S*.
 
@@ -15,6 +14,12 @@ It takes in input:
 ```sh
 git clone https://github.com/saramont/LiME_binning
 cd LiME_binning
+```
+
+### Compile
+
+```sh
+make
 ```
 
 ### Run
