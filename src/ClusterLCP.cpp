@@ -56,11 +56,19 @@ int main(int argc, char **argv) {
 		clock_t c_refine=0, c_total=0;
 	#endif
 
-	if( argc != 5 )
-	{	
-		std::cerr << "Error usage: " << argv[0] << " fileFasta numReads alpha threads" << std::endl; 
-		exit(1);
-	}
+	#if OMP==0
+		if( argc != 4 )
+		{	
+			std::cerr << "Error usage: " << argv[0] << " fileFasta numReads alpha" << std::endl; 
+			exit(1);
+		}
+	#else
+		if( argc != 5 )
+		{	
+			std::cerr << "Error usage: " << argv[0] << " fileFasta numReads alpha threads" << std::endl; 
+			exit(1);
+		}
+	#endif
     
 	string fileFasta=argv[1]; 
 	dataTypelenSeq alpha;
