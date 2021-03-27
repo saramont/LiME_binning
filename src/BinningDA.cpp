@@ -47,7 +47,7 @@ void Analysis_and_updating(std::vector<dataTypeNSeq>::iterator &lowBounds, std::
 	
     vector<dataTypeNSeq> id_reads;
     
-    dataTypeNSeq da, da_next, idxStart, idxEnd;
+    dataTypeNSeq da, da_next, idxStart = 0, idxEnd = 0;
     bool foundStart = false;
     bool foundEnd = false;
 	//Reads
@@ -129,9 +129,9 @@ dataTypeNChar clusterAnalyze(dataTypeNChar chk, FILE *InFileCluster, FILE *InDA,
 #endif
 {
 	dataTypeNChar counter=0;
-    dataTypeNChar numcharCluster, numcharDA;
+    	dataTypeNChar numcharCluster, numcharDA;
 	ElementCluster* clusterbuffer= new ElementCluster[BUFFERCLUSTER];
-    dataTypeNSeq* DAbuffer= new dataTypeNSeq[sizeMaxBuf]; //65536
+    	//dataTypeNSeq* DAbuffer= new dataTypeNSeq[sizeMaxBuf]; //65536
 	
 	
 	vector<dataTypeNSeq> elebuffer;
@@ -178,7 +178,13 @@ dataTypeNChar clusterAnalyze(dataTypeNChar chk, FILE *InFileCluster, FILE *InDA,
         else
             numcharCluster=fread(clusterbuffer,sizeof(ElementCluster),chk,InFileCluster);
     }//end-while
-    elebuffer.shrink_to_fit();
+    	elebuffer.shrink_to_fit();
+	read_symb.shrink_to_fit();
+	
+	
+	elebuffer.clear();
+	read_symb.clear();
+	elebuffer.shrink_to_fit();
 	read_symb.shrink_to_fit();
 	
 	return counter;
@@ -193,8 +199,8 @@ void setAnalysis(dataTypeSimsMat &simVals, dataTypeNSeq *reads_to_set, dataTypeN
 {
 	dataTypeNSeq rowIdx;
 	dataTypeNSeq colIdx;
-	bool rowInSet;
-	bool colInSet;
+	//bool rowInSet;
+	//bool colInSet;
 	dataTypeNSeq row_set_id;
 	dataTypeNSeq col_set_id;
 	
@@ -592,9 +598,9 @@ int main(int argc, char **argv) {
 	#else
 		string outSets;
 		if (pos)
-			outSets=fileFasta+".sets1"+".a"+to_string(minLCP)+"POS.t"+to_string(t); 
+			outSets=fileFasta+".a"+to_string(minLCP)+"POS.t"+to_string(t); 
 		else
-			outSets=fileFasta+".sets1"+".a"+to_string(minLCP)+".t"+to_string(t); 
+			outSets=fileFasta+".a"+to_string(minLCP)+".t"+to_string(t); 
 	
 	#endif
 	FILE *fpSets;
