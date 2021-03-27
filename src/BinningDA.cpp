@@ -263,25 +263,24 @@ int main(int argc, char **argv) {
 	#endif
 	 
 	#if OMP==1
-		if( argc != 5)
-		{
+		if( argc != 5) {
 			std::cerr << "Error usage " << argv[0] << " fileFasta t max_rows threads"  << std::endl; // beta non serve più?
 			exit(1);
 		}
 	#else
-			if( argc != 4)
-		{
+		if( argc != 4) {
 			std::cerr << "Error usage " << argv[0] << " fileFasta t max_rows"  << std::endl; // beta non serve più?
 			exit(1);
 		}
 	#endif
 
 	int num_threads=1;
-	sscanf(argv[4], "%d", &num_threads);
+	
 	#if OMP
+		sscanf(argv[4], "%d", &num_threads);
 		omp_set_num_threads(num_threads);
 
-    int threads=0;
+    		int threads=0;
 		#pragma omp parallel
 		{
 			threads = omp_get_num_threads();
@@ -364,11 +363,11 @@ int main(int argc, char **argv) {
 	FILE *InDA[num_threads];
 	int t_id=0;
 	#if OMP
-    for(;t_id<num_threads; t_id++)
-    #endif
-    {
-        InFileCluster[t_id] = fopen(fnCluster.c_str(), "rb");
-        if ((InFileCluster[t_id]==NULL)){
+    	for(;t_id<num_threads; t_id++)
+    	#endif
+    	{
+        	InFileCluster[t_id] = fopen(fnCluster.c_str(), "rb");
+        	if ((InFileCluster[t_id]==NULL)){
 			std::cerr << "Error opening " << fnCluster << "." << std::endl;
 			printf("fopen failed, errno = %d\n", errno);
 			exit (EXIT_FAILURE);
@@ -407,7 +406,7 @@ int main(int argc, char **argv) {
 		for (dataTypeNSeq i=0; i<numRead; i++)
 			reads_to_set[i]=0;
 	#endif 
-    dataTypeAllSets sets;
+    	dataTypeAllSets sets;
 
 	if (rem) 
 		nIter=q+1;
