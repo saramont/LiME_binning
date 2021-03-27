@@ -256,17 +256,25 @@ void setAnalysis(dataTypeSimsMat &simVals, dataTypeNSeq *reads_to_set, dataTypeN
 int main(int argc, char **argv) {
   
 	#if OMP
-    double d_total, d_refine;
+    		double d_total, d_refine;
 	#else
-    time_t t_refine=0, t_total=0;
-    clock_t c_refine=0, c_total=0;
+    		time_t t_refine=0, t_total=0;
+    		clock_t c_refine=0, c_total=0;
 	#endif
 	 
-	if( argc != 5)
-	{
-		std::cerr << "Error usage " << argv[0] << " fileFasta t max_rows threads"  << std::endl; // beta non serve più?
-		exit(1);
-	}
+	#if OMP==1
+		if( argc != 5)
+		{
+			std::cerr << "Error usage " << argv[0] << " fileFasta t max_rows threads"  << std::endl; // beta non serve più?
+			exit(1);
+		}
+	#else
+			if( argc != 4)
+		{
+			std::cerr << "Error usage " << argv[0] << " fileFasta t max_rows"  << std::endl; // beta non serve più?
+			exit(1);
+		}
+	#endif
 
 	int num_threads=1;
 	sscanf(argv[4], "%d", &num_threads);
