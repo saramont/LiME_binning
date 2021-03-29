@@ -28,7 +28,6 @@
 #include <malloc.h>
 #include <time.h>
 #include <omp.h>
-#include <eigen3/Eigen/Sparse>
 
 #define BUFFERLCPSIZE 1048576
 
@@ -41,7 +40,6 @@
 #define ALF 16
 
 using namespace std;
-using namespace Eigen;
 
 typedef unsigned char uchar;
 typedef unsigned int uint;
