@@ -26,7 +26,7 @@ cd LiME_binning
 make
 ```
 
-###Preprocessing step
+### Preprocessing step
 
 There are several tools available for computing the required data structures (lcp, da) for S.
 
