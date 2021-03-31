@@ -64,16 +64,20 @@ One may use the script LiME_binning.sh to run both steps sequentially. It takes 
 - alpha, minimum LCP value in a cluster;
 - t, the minimum threshold similarity value.
 
-One may reduce the internal memory usage by setting the parameter max_rows (max_rows is value in [1,numReads]).
-Indeed, such parameter limits the number of matrix rows in main memory to max_rows. (Default: numReads).
 
 ```sh
 ./LiMEbinning fileName numReads alpha t
 ```
 
+One may reduce the internal memory usage by setting in it the parameter max_rows (max_rows is value in [1,numReads]).
+Indeed, such parameter limits to max_rows the number of matrix rows in main memory. (Default: numReads).
+
 
 ### Examples
-After running Install_tools_preprocessing.sh and Preprocessing.sh (on input example.fasta):
+A quick test can be run on input example.fasta (in folder example).
+
+After running Install_tools_preprocessing.sh and Preprocessing.sh:
+
 ```sh
 ./LiMEbinning example+RC.fasta 12 16 20
 ```
